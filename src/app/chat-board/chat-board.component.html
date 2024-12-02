@@ -1,3 +1,7 @@
+<div>
+  <app-chat-message-client [message]="'wow'"></app-chat-message-client>
+  <app-chat-message-gpt [message]="'Wow, indeed! What\'s on your mind? 😊'">
+  </app-chat-message-gpt>
+</div>
 
-
-<app-chat-input></app-chat-input>
+<app-chat-input (messageToSend)="sendMessages($event)"></app-chat-input>

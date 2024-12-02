@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-chat-message-gpt',
@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './chat-message-gpt.component.scss'
 })
 export class ChatMessageGptComponent {
-
+  message = input.required<string>({
+    alias: "message",
+  });
 }

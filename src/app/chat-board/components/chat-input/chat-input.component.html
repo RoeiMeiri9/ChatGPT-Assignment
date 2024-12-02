@@ -1,1 +1,13 @@
-<p>input-box works!</p>
+<span
+  class="textarea"
+  role="textbox"
+  name="fieldName"
+  contenteditable
+  (keydown.enter)="sendMessage($event, true)"
+  (input)="messageContent = textarea.innerText"
+  #textarea
+>
+</span>
+<div>
+  <button (click)="sendMessage($event)">Send</button>
+</div>
