@@ -14,6 +14,7 @@ describe('ChatMessageGptComponent', () => {
 
     fixture = TestBed.createComponent(ChatMessageGptComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('answer', 'test');
     fixture.detectChanges();
   });
 

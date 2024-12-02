@@ -5,7 +5,7 @@ import { ChatMessageClientComponent } from './chat-message-client.component';
 describe('ChatMessageClientComponent', () => {
   let component: ChatMessageClientComponent;
   let fixture: ComponentFixture<ChatMessageClientComponent>;
-
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ChatMessageClientComponent]
@@ -14,6 +14,7 @@ describe('ChatMessageClientComponent', () => {
 
     fixture = TestBed.createComponent(ChatMessageClientComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('question', 'test');
     fixture.detectChanges();
   });
 

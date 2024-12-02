@@ -1,7 +1,12 @@
 <div>
-  <app-chat-message-client [prompt]="'wow'"></app-chat-message-client>
-  <app-chat-message-gpt [prompt]="'Wow, indeed! What\'s on your mind? 😊'">
-  </app-chat-message-gpt>
+  @for (message of messageList | async; track message.id) {
+    @if (message.origin === "User") {
+      <app-chat-message-client [question]="message.content">
+      </app-chat-message-client>
+    } @else if (message.origin === "GPT") {
+      <app-chat-message-gpt [answer]="message.content"> </app-chat-message-gpt>
+    }
+  }
 </div>
 
-<app-chat-input (promptToSend)="sendPrompt($event)"></app-chat-input>
+<app-chat-input (promptToSend)="sendPrompt($event)"> </app-chat-input>

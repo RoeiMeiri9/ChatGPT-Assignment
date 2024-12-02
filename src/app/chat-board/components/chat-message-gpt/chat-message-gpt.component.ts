@@ -7,7 +7,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './chat-message-gpt.component.scss'
 })
 export class ChatMessageGptComponent {
-  prompt = input.required<string>({
-    alias: "prompt",
+  answer = input.required<string>({
+    alias: "answer",
   });
 }

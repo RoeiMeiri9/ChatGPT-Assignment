@@ -4,6 +4,8 @@ import { ChatMessageClientComponent } from './components/chat-message-client/cha
 import { ChatMessageGptComponent } from './components/chat-message-gpt/chat-message-gpt.component';
 import { APIService } from '../services/api.service';
 import { Message } from '../shared/interfaces';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-chat-board',
@@ -11,18 +13,17 @@ import { Message } from '../shared/interfaces';
     ChatInputComponent,
     ChatMessageClientComponent,
     ChatMessageGptComponent,
+    CommonModule,
   ],
   templateUrl: './chat-board.component.html',
   styleUrl: './chat-board.component.scss',
 })
 export class ChatBoardComponent {
-  messageList: Message[] = [];
+  messageList!: Observable<Message[]>;
 
   constructor(private api: APIService) {}
 
   sendPrompt(promptToSend: string) {
-    this.api.sendPrompt(promptToSend).subscribe((result) => {
-      this.messageList.concat(result);
-    });
+    this.messageList = this.api.sendPrompt(promptToSend);
   }
 }
