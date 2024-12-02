@@ -9,7 +9,7 @@ import {
 import { Message } from '../shared/interfaces';
 import { Observable, of } from 'rxjs';
 import { provideHttpClient } from '@angular/common/http';
-import { DebugElement, ElementRef } from '@angular/core';
+import { ChangeDetectorRef, DebugElement, ElementRef } from '@angular/core';
 import { errorMessages } from '../shared/error';
 
 describe('ChatBoardComponent', () => {
@@ -41,7 +41,9 @@ describe('ChatBoardComponent', () => {
   describe('Ensuring empty prompt are not sent', () => {
     // Empty messages should be ignored
     it('Should ignore empty prompt', () => {
-      expect(() => apiService.sendPrompt('')).toThrowError(errorMessages.emptyPrompt);
+      expect(() => apiService.sendPrompt('')).toThrowError(
+        errorMessages.emptyPrompt,
+      );
     });
   });
 
@@ -53,10 +55,13 @@ describe('ChatBoardComponent', () => {
       // Both of them should be represented on the UI.
 
       // Setting a mockup (making an observer out of a list of messages)
-      component.messageList$ = of([
+      component.messageList = [
         { id: '0', content: 'foo', origin: 'User' },
         { id: '1', content: 'bar', origin: 'GPT' },
-      ]);
+      ];
+
+      const changeDetectorRef = componentRef.injector.get(ChangeDetectorRef); 
+      changeDetectorRef.markForCheck();
 
       // Detecting for changes on the UI
       fixture.detectChanges();

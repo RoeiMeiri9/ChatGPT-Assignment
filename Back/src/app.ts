@@ -1,15 +1,25 @@
-import express from 'express';
 import { Message } from './interfaces';
 import { answers } from './answers';
+import express from 'express';
+import cors from 'cors';
 
 const app = express();
 const port = 3200;
+
+const allowedOrigins = ['http://localhost:4200'];
+
+const options: cors.CorsOptions = {
+	origin: allowedOrigins,
+};
+
+app.use(cors(options));
+app.use(express.json());
 
 let id: number = 0;
 
 app.get('/', (req, res) => {
 	console.log('wow');
-	res.send('Hello World!');
+	res.status(200).json({ message: "Hey there, everything's working fine!" });
 });
 
 app.post('/prompt', (req, res) => {
@@ -28,7 +38,7 @@ app.post('/prompt', (req, res) => {
 	];
 	id++;
 
-	res.send(answer);
+	res.status(200).json(answer);
 });
 
 app.listen(port, () => {
