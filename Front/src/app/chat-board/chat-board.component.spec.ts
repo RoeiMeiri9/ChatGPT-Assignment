@@ -53,7 +53,7 @@ describe('ChatBoardComponent', () => {
       // Both of them should be represented on the UI.
 
       // Setting a mockup (making an observer out of a list of messages)
-      component.messageList = of([
+      component.messageList$ = of([
         { id: '0', content: 'foo', origin: 'User' },
         { id: '1', content: 'bar', origin: 'GPT' },
       ]);

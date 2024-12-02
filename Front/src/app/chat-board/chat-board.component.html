@@ -1,5 +1,6 @@
 <div>
-  @for (message of messageList | async; track message.id) {
+    
+  @for (message of messageList; track message.id) {
     @if (message.origin === "User") {
       <app-chat-message-client [question]="message.content">
       </app-chat-message-client>
