@@ -3,11 +3,11 @@
   role="textbox"
   name="fieldName"
   contenteditable
-  (keydown.enter)="sendMessage($event, true)"
-  (input)="messageContent = textarea.innerText"
+  (keydown.enter)="sendPrompt($event, true)"
+  (input)="promptContent = textarea.innerText"
   #textarea
 >
 </span>
 <div>
-  <button (click)="sendMessage($event)">Send</button>
+  <button (click)="sendPrompt($event)">Send</button>
 </div>

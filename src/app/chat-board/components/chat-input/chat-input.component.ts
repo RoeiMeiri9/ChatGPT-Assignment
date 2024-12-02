@@ -11,18 +11,18 @@ import { hebrewStrings } from '../../../shared/hebrewStrings';
 })
 export class ChatInputComponent {
   textArea = viewChild<ElementRef>('textarea');
-  messageContent: string = '';
+  promptContent: string = '';
   hebrewStrings = hebrewStrings;
 
-  emittingMessage = output<string>({
-    alias: 'messageToSend',
+  emittingPrompt = output<string>({
+    alias: 'promptToSend',
   });
 
-  sendMessage(event: Event, preventDefault: boolean = false) {
+  sendPrompt(event: Event, preventDefault: boolean = false) {
     if(preventDefault){
       event.preventDefault();
     }
-    this.emittingMessage.emit(this.messageContent);
+    this.emittingPrompt.emit(this.promptContent);
     (this.textArea()?.nativeElement as HTMLSpanElement).innerText = '';
   }
 }

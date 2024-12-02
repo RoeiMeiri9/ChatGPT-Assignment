@@ -7,7 +7,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './chat-message-client.component.scss'
 })
 export class ChatMessageClientComponent {
-  message = input.required<string>({
-    alias: "message",
+  prompt = input.required<string>({
+    alias: "prompt",
   });
 }

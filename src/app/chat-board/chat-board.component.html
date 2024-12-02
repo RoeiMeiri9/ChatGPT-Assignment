@@ -1,7 +1,7 @@
 <div>
-  <app-chat-message-client [message]="'wow'"></app-chat-message-client>
-  <app-chat-message-gpt [message]="'Wow, indeed! What\'s on your mind? 😊'">
+  <app-chat-message-client [prompt]="'wow'"></app-chat-message-client>
+  <app-chat-message-gpt [prompt]="'Wow, indeed! What\'s on your mind? 😊'">
   </app-chat-message-gpt>
 </div>
 
-<app-chat-input (messageToSend)="sendMessages($event)"></app-chat-input>
+<app-chat-input (promptToSend)="sendPrompt($event)"></app-chat-input>
