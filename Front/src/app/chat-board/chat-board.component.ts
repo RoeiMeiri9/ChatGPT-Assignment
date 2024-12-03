@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './chat-board.component.html',
   styleUrl: './chat-board.component.scss',
+  host: {'class': 'container'},
 })
 export class ChatBoardComponent {
   messageList: Message[] = [];

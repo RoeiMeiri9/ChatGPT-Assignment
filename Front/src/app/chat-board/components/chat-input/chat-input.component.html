@@ -3,11 +3,14 @@
   role="textbox"
   name="fieldName"
   contenteditable
+  [attr.data-content]="hebrewStrings.enterMessage"
   (keydown.enter)="sendPrompt($event, true)"
   (input)="promptContent = textarea.innerText"
   #textarea
 >
 </span>
 <div>
-  <button (click)="sendPrompt($event)">Send</button>
+  <button (click)="sendPrompt($event)">
+    <img [src]="'Assets/Send.svg'" alt="">
+  </button>
 </div>

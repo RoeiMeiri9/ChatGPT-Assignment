@@ -1,3 +1,3 @@
 export const hebrewStrings = {
-  enterMessage: 'כתוב הודעה',
+  enterMessage: 'שאל משהו...',
 };

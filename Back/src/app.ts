@@ -1,16 +1,16 @@
-import { Message } from '../../Shared/interfaces';
-import { answers } from './answers';
-import express from 'express';
-import cors from 'cors';
+import { Message } from "../../Shared/interfaces";
+import { answers } from "./answers";
+import express from "express";
+import cors from "cors";
 
 // Configuring the application
 const app = express();
 const port = 3200;
 
 // Allowing the front to communicate with the server
-const allowedOrigins = ['http://localhost:4200'];
+const allowedOrigins = ["http://localhost:4200"];
 const options: cors.CorsOptions = {
-	origin: allowedOrigins,
+  origin: allowedOrigins,
 };
 app.use(cors(options));
 
@@ -26,7 +26,7 @@ let messageID: number = 0;
  * @param log the message to be printed
  */
 function printLog(log: string) {
-	console.log(`[${new Date().toISOString()}]\t${log}`);
+  console.log(`[${new Date().toISOString()}]\t${log}`);
 }
 
 /**
@@ -34,48 +34,48 @@ function printLog(log: string) {
  * @param req HTTP Request
  */
 function logRequest(req: any) {
-	printLog(`${req.method} Request called from ${req.headers.host}`);
+  printLog(`${req.method} Request called from ${req.headers.host}`);
 }
 
 /**
  * Test endpoint to test server connectivity
  */
-app.get('/', (req, res) => {
-	logRequest(req);
-	res.status(200).json({ message: "Hey there, everything's working fine!" });
+app.get("/", (req, res) => {
+  logRequest(req);
+  res.status(200).json({ message: "Hey there, everything's working fine!" });
 });
 
 /**
  * Returns result for prompts
  */
-app.post('/prompt', (req, res) => {
-	// Logging
-	logRequest(req);
-	printLog('Generating answer');
+app.post("/prompt", (req, res) => {
+  // Logging
+  logRequest(req);
+  printLog("Generating answer");
 
   // Generating answer
-	const content: string = req.body.content;
-	const answer: Message[] = [
-		{
-			content: content,
-			id: `${messageID}`,
-			type: 'Prompt',
-		},
-		{
-			content: answers[Math.floor(Math.random() * answers.length)],
-			id: `${messageID++}`,
-			type: 'Answer',
-		},
-	];
-	messageID++;
+  const content: string = req.body.content;
+  const answer: Message[] = [
+    {
+      content: content,
+      id: `${messageID}`,
+      type: "Prompt",
+    },
+    {
+      content: answers[Math.floor(Math.random() * answers.length)],
+      id: `${messageID++}`,
+      type: "Answer",
+    },
+  ];
+  messageID++;
 
   // Returning answer
-	res.status(200).json(answer);
+  res.status(200).json(answer);
 });
 
 /**
  * Listens to localhost on port 3200
  */
 app.listen(port, () => {
-	return console.log(`Express is listening at http://localhost:${port}`);
+  return console.log(`Express is listening at http://localhost:${port}`);
 });

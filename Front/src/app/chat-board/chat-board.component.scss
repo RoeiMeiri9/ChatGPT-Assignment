@@ -1,4 +1,17 @@
 :host {
-  width: 100%;
+  height: 100%;
   display: block;
+  padding: 42px;
+}
+
+.chat-board{
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.messages-board{
+  height: 100%;
+  padding: 0 10px;
+  overflow: auto;
+  padding: auto;
 }

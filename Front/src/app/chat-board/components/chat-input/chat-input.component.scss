@@ -1,33 +1,61 @@
 :host {
-  position: relative;
   width: 100%;
   max-width: 100%;
-  padding: 16px;
+  position: relative;
   display: grid;
-  gap: 16px;
   grid-template-columns: 1fr auto;
+  gap: 16px;
+  // padding-right: 60px;
 
   div {
     display: grid;
     justify-content: center;
+
     button {
+      min-height: auto;
+
       margin: auto auto;
+      padding: 10px 20px;
+      overflow: hidden;
+      display: block;
+      background: rgba(225, 5, 20, 0.84);
+      box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(106, 17, 23, 0.11);
+      border-radius: 50px;
+
+      img {
+        width: 20px;
+        height: 20px;
+        transform: translate(-1px, -2px);
+      }
+
+      &:hover {
+        background: rgb(188, 16, 27);
+      }
     }
   }
-}
 
-.textarea {
-  min-height: auto;
-  padding: 8px 8px;
-  overflow: hidden;
-  display: block;
-  border: 1px solid #ccc;
-  font-size: inherit;
-  font-family: inherit;
-  line-height: 20px;
-}
+  .textarea {
+    min-height: auto;
+    padding: 10px 16px;
+    overflow: hidden;
+    display: block;
+    background: #faf7f9;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 25px;
+    color: rgba(0, 0, 0, 0.56);
+    font-size: inherit;
+    font-family: inherit;
+    line-height: 20px;
 
-// .textarea[contenteditable]:empty::before {
-//   content: "Placeholder still possible";
-//   color: gray;
-// }
+    &:focus {
+      outline: none;
+      background: #faf7f9;
+    }
+  }
+  .textarea[contenteditable]:empty::before {
+    content: attr(data-content);
+    color: gray;
+  }
+}
