@@ -1,15 +1,15 @@
-:host{
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 8px;
-    color: rgba(0,0,0,0.56);
-    padding: 10px;
-    margin-bottom: 16px;
+:host {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  color: rgba(0, 0, 0, 0.56);
+  padding: 10px;
+  margin-bottom: 16px;
 
-    img{
-        width: 40px;
-    }
-    p{
-        white-space: pre-line;
-    }
+  img {
+    width: 40px;
+  }
+  p {
+    white-space: pre-line;
+  }
 }
