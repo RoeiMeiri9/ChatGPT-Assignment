@@ -1,4 +1,4 @@
-import { Message } from './interfaces';
+import { Message } from '../../Shared/interfaces';
 import { answers } from './answers';
 import express from 'express';
 import cors from 'cors';

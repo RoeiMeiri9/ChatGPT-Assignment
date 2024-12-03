@@ -6,7 +6,7 @@ import {
   HttpTestingController,
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
-import { Message } from '../shared/interfaces';
+import { Message } from '../../../../Shared/interfaces';
 import { Observable, of } from 'rxjs';
 import { provideHttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, DebugElement, ElementRef } from '@angular/core';

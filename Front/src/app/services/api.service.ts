@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Message } from '../shared/interfaces';
+import { Message } from '../../../../Shared/interfaces';
 import { HttpClient } from '@angular/common/http';
 import { errorMessages } from '../shared/error';
 
