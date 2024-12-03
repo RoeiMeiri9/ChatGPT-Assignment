@@ -1,9 +1,9 @@
 <div>
   @for (message of messageList; track message.id) {
-    @if (message.origin === "User") {
-      <app-chat-message-client [question]="message.content">
+    @if (message.type === "Prompt") {
+      <app-chat-message-client [prompt]="message.content">
       </app-chat-message-client>
-    } @else if (message.origin === "GPT") {
+    } @else if (message.type === "Answer") {
       <app-chat-message-gpt [answer]="message.content"> </app-chat-message-gpt>
     }
   }

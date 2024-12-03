@@ -40,12 +40,12 @@ app.post('/prompt', (req, res) => {
 		{
 			content: content,
 			id: `${messageID}`,
-			origin: 'User',
+			type: 'Prompt',
 		},
 		{
 			content: answers[Math.floor(Math.random() * answers.length)],
 			id: `${messageID++}`,
-			origin: 'User',
+			type: 'Answer',
 		},
 	];
 	messageID++;

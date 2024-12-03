@@ -13,7 +13,7 @@ describe('ChatMessageClientComponent', () => {
 
     fixture = TestBed.createComponent(ChatMessageClientComponent);
     component = fixture.componentInstance;
-    fixture.componentRef.setInput('question', 'test');
+    fixture.componentRef.setInput('prompt', 'test');
     fixture.detectChanges();
   });
 

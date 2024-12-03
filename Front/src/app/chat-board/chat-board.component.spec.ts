@@ -6,8 +6,6 @@ import {
   HttpTestingController,
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
-import { Message } from '../../../../Shared/interfaces';
-import { Observable, of } from 'rxjs';
 import { provideHttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, DebugElement, ElementRef } from '@angular/core';
 import { errorMessages } from '../shared/error';
@@ -50,14 +48,14 @@ describe('ChatBoardComponent', () => {
   describe('Displaying messages on the board', () => {
     it('Should display one question and one answer', () => {
       // For every prompt the user is sending to the backend, the result should be a list of two messages:
-      // 1. The prompt with ID and origin attached to it
+      // 1. The prompt with ID and type attached to it
       // 2. The actual answer from the API.
       // Both of them should be represented on the UI.
 
       // Setting a mockup (making an observer out of a list of messages)
       component.messageList = [
-        { id: '0', content: 'foo', origin: 'User' },
-        { id: '1', content: 'bar', origin: 'GPT' },
+        { id: '0', content: 'foo', type: 'Prompt' },
+        { id: '1', content: 'bar', type: 'Answer' },
       ];
 
       const changeDetectorRef = componentRef.injector.get(ChangeDetectorRef);
