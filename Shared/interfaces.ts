@@ -1,4 +1,4 @@
-export type TypeOfMessage = 'Answer' | 'Prompt';
+export type TypeOfMessage = "Answer" | "Prompt";
 
 /**
  * Interface of Message
