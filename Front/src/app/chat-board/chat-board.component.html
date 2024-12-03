@@ -1,6 +1,6 @@
 <div class="row justify-content-md-center h-100">
   <div class="col col-lg-8 h-100 chat-board">
-    <div class="messages-board">
+    <div class="messages-board" #messageBoard>
       @for (message of messageList; track message.id) {
         @if (message.type === "Prompt") {
           <app-chat-message-client [prompt]="message.content">

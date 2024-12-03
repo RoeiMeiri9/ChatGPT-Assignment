@@ -1,7 +1,10 @@
 import {
+  AfterViewChecked,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ElementRef,
+  viewChild,
 } from '@angular/core';
 import { ChatInputComponent } from './components/chat-input/chat-input.component';
 import { ChatMessageClientComponent } from './components/chat-message-client/chat-message-client.component';
@@ -21,10 +24,12 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './chat-board.component.html',
   styleUrl: './chat-board.component.scss',
-  host: {'class': 'container'},
+  host: { class: 'container' },
 })
-export class ChatBoardComponent {
+export class ChatBoardComponent implements AfterViewChecked {
   messageList: Message[] = [];
+
+  messageBoard = viewChild<ElementRef>('messageBoard');
 
   constructor(
     private api: APIService,
@@ -40,5 +45,12 @@ export class ChatBoardComponent {
       this.messageList = this.messageList.concat(result);
       this.cdr.markForCheck(); // Manually trigger change detection
     });
+  }
+
+  ngAfterViewChecked() {
+    const messageBoardElement = this.messageBoard()
+      ?.nativeElement as HTMLElement;
+
+    messageBoardElement.scroll(0, messageBoardElement.scrollHeight);
   }
 }
