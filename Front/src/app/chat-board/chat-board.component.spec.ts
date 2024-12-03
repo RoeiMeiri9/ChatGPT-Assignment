@@ -60,7 +60,7 @@ describe('ChatBoardComponent', () => {
         { id: '1', content: 'bar', origin: 'GPT' },
       ];
 
-      const changeDetectorRef = componentRef.injector.get(ChangeDetectorRef); 
+      const changeDetectorRef = componentRef.injector.get(ChangeDetectorRef);
       changeDetectorRef.markForCheck();
 
       // Detecting for changes on the UI

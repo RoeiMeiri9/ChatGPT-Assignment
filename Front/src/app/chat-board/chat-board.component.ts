@@ -8,9 +8,7 @@ import { ChatMessageClientComponent } from './components/chat-message-client/cha
 import { ChatMessageGptComponent } from './components/chat-message-gpt/chat-message-gpt.component';
 import { APIService } from '../services/api.service';
 import { Message } from '../shared/interfaces';
-import { Observable, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-chat-board',
@@ -30,13 +28,12 @@ export class ChatBoardComponent {
   constructor(
     private api: APIService,
     private cdr: ChangeDetectorRef,
-    private httpClient: HttpClient,
-  ) {
-    this.httpClient
-      .get('http://localhost:3200/')
-      .subscribe((restult) => console.log(restult));
-  }
+  ) {}
 
+  /**
+   * Sends the prompt and listen to the results
+   * @param promptToSend Prompt to send to the BE
+   */
   sendPrompt(promptToSend: string): void {
     this.api.sendPrompt(promptToSend).subscribe((result) => {
       this.messageList = this.messageList.concat(result);

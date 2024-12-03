@@ -5,12 +5,11 @@ import { ChatMessageClientComponent } from './chat-message-client.component';
 describe('ChatMessageClientComponent', () => {
   let component: ChatMessageClientComponent;
   let fixture: ComponentFixture<ChatMessageClientComponent>;
-  
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChatMessageClientComponent]
-    })
-    .compileComponents();
+      imports: [ChatMessageClientComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ChatMessageClientComponent);
     component = fixture.componentInstance;

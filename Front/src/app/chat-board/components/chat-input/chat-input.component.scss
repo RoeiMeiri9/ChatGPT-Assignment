@@ -7,10 +7,10 @@
   gap: 16px;
   grid-template-columns: 1fr auto;
 
-  div{
+  div {
     display: grid;
     justify-content: center;
-    button{
+    button {
       margin: auto auto;
     }
   }

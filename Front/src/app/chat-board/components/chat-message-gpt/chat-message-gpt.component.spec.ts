@@ -8,9 +8,8 @@ describe('ChatMessageGptComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChatMessageGptComponent]
-    })
-    .compileComponents();
+      imports: [ChatMessageGptComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ChatMessageGptComponent);
     component = fixture.componentInstance;
