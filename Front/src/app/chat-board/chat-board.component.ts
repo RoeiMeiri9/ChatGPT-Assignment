@@ -51,6 +51,8 @@ export class ChatBoardComponent implements AfterViewChecked {
     const messageBoardElement = this.messageBoard()
       ?.nativeElement as HTMLElement;
 
-    messageBoardElement.scroll(0, messageBoardElement.scrollHeight);
+    if(messageBoardElement.scrollTo){
+      messageBoardElement.scrollTo(0, messageBoardElement.scrollHeight);
+    }
   }
 }
